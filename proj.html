@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SRM Campus Helper 🚀</title>
+  <style>
+    /* ==== GLOBAL SPACE THEME ==== */
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", sans-serif;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: #fff;
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* Twinkling Stars */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      animation: twinkle 20s linear infinite;
+      z-index: -1;
+    }
+    @keyframes twinkle {
+      from {background-position:0 0;}
+      to {background-position:1000px 1000px;}
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.6);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #4dd0e1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: rgba(0,0,0,0.5);
+      padding: 0.5rem;
+      border-bottom: 2px solid #4dd0e1;
+    }
+    nav a {
+      padding: 0.5rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      background: rgba(77, 208, 225, 0.2);
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: rgba(77, 208, 225, 0.5);
+      box-shadow: 0 0 10px #4dd0e1;
+    }
+
+    section {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 800px;
+      border-radius: 50%;
+      text-align: center;
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 20px rgba(77,208,225,0.6);
+      transition: 0.4s;
+    }
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(77,208,225,0.9);
+    }
+
+    h2 { margin-top: 0; }
+
+    /* ==== CANTEEN MENU PLANET ==== */
+    #canteens {
+      background: radial-gradient(circle at center, #ffcc80, #ff7043);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 0.5rem;
+    }
+
+    /* ==== LIBRARY PLANET ==== */
+    #libraries {
+      background: radial-gradient(circle at center, #90caf9, #3949ab);
+    }
+
+    /* ==== CLUBS PLANET ==== */
+    #clubs {
+      background: radial-gradient(circle at center, #f48fb1, #ad1457);
+    }
+
+    /* ==== EVENTS PLANET ==== */
+    #events {
+      background: radial-gradient(circle at center, #81d4fa, #0288d1);
+      border-radius: 50%;
+      padding: 2rem;
+    }
+    #countdown {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    /* ==== MAP / GUIDE ==== */
+    #map {
+      background: radial-gradient(circle at center, #a5d6a7, #2e7d32);
+    }
+    .map-cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .map-card {
+      background: rgba(0,0,0,0.4);
+      padding: 1rem;
+      margin: 0.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .map-card:hover {
+      background: rgba(0,0,0,0.7);
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #fff;
+    }
+
+    /* ==== DARK MODE TOGGLE ==== */
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #4dd0e1;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* ==== FLOATING ASTRONAUTS ==== */
+    .astronaut {
+      position: fixed;
+      font-size: 2rem;
+      animation: float 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes float {
+      0% {transform: translateY(100vh) rotate(0);}
+      100% {transform: translateY(-120vh) rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Galaxy Mode</button>
+  <header>🌌 SRM Campus Helper 🚀</header>
+
+  <nav>
+    <a href="#canteens">🍕 Canteens</a>
+    <a href="#libraries">📚 Libraries</a>
+    <a href="#clubs">🎶 Clubs</a>
+    <a href="#events">🪐 Events</a>
+    <a href="#map">🗺️ Map</a>
+  </nav>
+
+  <section id="canteens">
+    <h2>🍕 Canteen Planet</h2>
+    <table>
+      <tr><th>Item</th><th>Price</th></tr>
+      <tr><td>Dosa</td><td>₹40</td></tr>
+      <tr><td>Idli</td><td>₹30</td></tr>
+      <tr><td>Pizza Slice</td><td>₹80</td></tr>
+      <tr><td>Coffee</td><td>₹25</td></tr>
+    </table>
+  </section>
+
+  <section id="libraries">
+    <h2>📚 Library Planet</h2>
+    <p>SRM Central Library & departmental libraries available with thousands of books and e-resources.</p>
+  </section>
+
+  <section id="clubs">
+    <h2>🎶 Clubs Planet</h2>
+    <p>Join coding clubs, dance clubs, music bands, and more! 🚀</p>
+  </section>
+
+  <section id="events">
+    <h2>🪐 Upcoming Event: GFG Orientation</h2>
+    <input type="datetime-local" id="eventDate" onchange="setEventDate()">
+    <div id="countdown"></div>
+  </section>
+
+  <section id="map">
+    <h2>🗺️ Space Guide</h2>
+    <div class="map-cards">
+      <div class="map-card">🚀 Tech Block</div>
+      <div class="map-card">🏠 Hostel</div>
+      <div class="map-card">🍽️ Canteen</div>
+      <div class="map-card">📚 Library</div>
+    </div>
+  </section>
+
+  <!-- Floating Astronauts -->
+  <div class="astronaut" style="left:10%">👩‍🚀</div>
+  <div class="astronaut" style="left:50%; animation-delay:5s;">👨‍🚀</div>
+  <div class="astronaut" style="left:80%; animation-delay:10s;">👩‍🚀</div>
+
+  <script>
+    /* ==== Dark Mode Toggle with Local Storage ==== */
+    function toggleTheme() {
+      if (document.body.classList.contains("light")) {
+        document.body.classList.remove("light");
+        localStorage.setItem("theme","dark");
+      } else {
+        document.body.classList.add("light");
+        localStorage.setItem("theme","light");
+      }
+    }
+    if(localStorage.getItem("theme")==="light") document.body.classList.add("light");
+
+    /* Light Mode CSS */
+    const style = document.createElement("style");
+    style.innerHTML = `
+      body.light {
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+        color: #000;
+      }
+      body.light nav a {color:#000;}
+      body.light header {background: rgba(255,255,255,0.6);}
+    `;
+    document.head.appendChild(style);
+
+    /* ==== Countdown Timer ==== */
+    let countdownInterval;
+    function setEventDate() {
+      clearInterval(countdownInterval);
+      const eventDate = new Date(document.getElementById("eventDate").value).getTime();
+      countdownInterval = setInterval(()=>{
+        const now = new Date().getTime();
+        const diff = eventDate - now;
+        if(diff < 0){
+          document.getElementById("countdown").innerText="Event Started!";
+          clearInterval(countdownInterval);
+          return;
+        }
+        const d = Math.floor(diff/(1000*60*60*24));
+        const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+        const m = Math.floor((diff%(1000*60*60))/(1000*60));
+        const s = Math.floor((diff%(1000*60))/1000);
+        document.getElementById("countdown").innerText = d+"d "+h+"h "+m+"m "+s+"s";
+      },1000);
+    }
+
+    /* ==== Konami Code Easter Egg ==== */
+    const secret = [38,38,40,40,37,39,37,39,66,65];
+    let pos=0;
+    document.addEventListener("keydown",e=>{
+      if(e.keyCode===secret[pos]){
+        pos++;
+        if(pos===secret.length){
+          starRain();
+          pos=0;
+        }
+      } else pos=0;
+    });
+    function starRain(){
+      for(let i=0;i<20;i++){
+        const el = document.createElement("div");
+        el.innerText = (i%5===0)?"👨‍🚀":"⭐";
+        el.style.position="fixed";
+        el.style.left=Math.random()*100+"vw";
+        el.style.top="-2rem";
+        el.style.fontSize="2rem";
+        el.style.animation=`fall ${3+Math.random()*2}s linear`;
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),5000);
+      }
+    }
+    const style2=document.createElement("style");
+    style2.innerHTML=`@keyframes fall{to{transform:translateY(110vh);}}`;
+    document.head.appendChild(style2);
+  </script>
+</body>
+</html>
